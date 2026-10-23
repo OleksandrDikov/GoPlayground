@@ -2,7 +2,7 @@ package books_test
 
 import (
 	"books"
-	"fmt"
+	"slices"
 	"testing"
 )
 
@@ -13,10 +13,30 @@ func TestBookToString_FormatsBookInfoAsString(t *testing.T) {
 		Copies: 2,
 	}
 
-	want := fmt.Sprintf("%v by %v (copies: %v)", input.Title, input.Author, input.Copies)
+	want := "Sea Room by Adam Nicolson (copies: 2)"
 	got := books.BookToString(input)
 
 	if want != got {
 		t.Fatalf("want %q, got %q", want, got)
+	}
+}
+
+func TestGetAllBooks(t *testing.T) {
+	want := []books.Book{
+		{
+			Title:  "In the Company of Cheerful Ladies",
+			Author: "Alexander McCall Smith",
+			Copies: 1,
+		},
+		{
+			Title:  "White Heat",
+			Author: "Dominic Sandbrook",
+			Copies: 2,
+		},
+	}
+	got := books.GetAllBooks()
+
+	if !slices.Equal(want, got) {
+		t.Fatalf("want %#v, got %#v", want, got)
 	}
 }
