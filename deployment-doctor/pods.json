@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"metadata": {"name": "api-demo"}, "status": {"phase": "Running"}},
+    {"metadata": {"name": "worker-demo"}, "status": {"phase": "Pending"}},
+    {"metadata": {"name": "job-demo"}, "status": {"phase": "Failed"}}
+  ]
+}
